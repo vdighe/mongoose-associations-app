@@ -1,0 +1,19 @@
+<body>
+    <h1>All Users Page</h1>
+    <ul>
+      <% for(let i = 0; i < users.length; i++){ %>
+      <li>
+        <a href="/users/<%= users[i]._id %>"> <%= users[i].name %> </a>
+      </li>
+      <div class="btn-group">
+        <form action="/users/<%= users[i]._id %>?_method=DELETE" method="POST">
+          <button type="submit" class="btn btn-primary">Delete</button>
+        </form>
+        <form action="/users/<%= users[i]._id %>/edit" method='GET'>
+          <button type="submit" class="btn btn-primary">Edit</button>
+        </form>
+      </div>
+      <% } %>
+    </ul>
+  </body>
+  

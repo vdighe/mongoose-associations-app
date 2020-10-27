@@ -22,11 +22,14 @@ app.use(expressLayouts);
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static('public'));
 app.use(methodOverride('_method'));
+
 app.get('/', (req, res) => {
   res.render('home.ejs');
 });
 
+app.use('/users', require('./controllers/usersController'));
 app.use('/albums', require('./controllers/albumsController')); 
+
 app.listen(PORT, () => {
   console.log(`server is running on port ${PORT}`);
 });
